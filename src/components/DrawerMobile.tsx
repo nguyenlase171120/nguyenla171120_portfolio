@@ -52,7 +52,13 @@ const DrawerMobile = () => {
               </LinkMobile>
             );
           })}
-          <Button variant="outlined" color="secondary" sx={{ width: "80%" }}>
+          <Button
+            variant="outlined"
+            color="secondary"
+            sx={{ width: "80%" }}
+            href="https://drive.google.com/file/d/1T3-EXekCKJfHhX8lbBOE_msCtp7RXpWR/view?usp=share_link"
+            target={"_blank"}
+          >
             Resume
           </Button>
         </Stack>

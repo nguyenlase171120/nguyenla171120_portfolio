@@ -107,15 +107,17 @@ const Navbar = () => {
         sx={{ padding: "0px 1.5rem", color: "#ccd6f6" }}
       >
         <Toolbar sx={{ height: "100px" }}>
-          <Link to="/">
+          <HashLink to="#introduce" smooth>
             <img
               alt=""
-              src={"/logo.ico"}
+              src={
+                "https://images.all-free-download.com/images/graphiclarge/animal_logo_illustration_vintage_vector_586763.jpg"
+              }
               width={60}
               height={60}
               style={{ borderRadius: "50%" }}
             />
-          </Link>
+          </HashLink>
           {isMobile ? (
             <DrawerMobile />
           ) : (
@@ -144,17 +146,23 @@ const Navbar = () => {
                 );
               })}
 
-              <Button
-                sx={{ padding: "0.5rem 1rem" }}
-                variant="outlined"
-                color="secondary"
-                component={motion.div}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ ease: "easeInOut", delay: 1 }}
+              <Link
+                to="https://drive.google.com/file/d/1T3-EXekCKJfHhX8lbBOE_msCtp7RXpWR/view?usp=share_link"
+                target={"_blank"}
+                style={{ textDecoration: "none" }}
               >
-                Resume
-              </Button>
+                <Button
+                  sx={{ padding: "0.5rem 1rem" }}
+                  variant="outlined"
+                  color="secondary"
+                  component={motion.div}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ ease: "easeInOut", delay: 1 }}
+                >
+                  Resume
+                </Button>
+              </Link>
             </Stack>
           )}
         </Toolbar>

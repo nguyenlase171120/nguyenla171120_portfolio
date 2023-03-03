@@ -4,6 +4,7 @@ import { theme } from "../layout/HomeLayout";
 import { setMobileState } from "../redux/settingSlice";
 import { useEffect } from "react";
 import { useAppDispatch } from "../redux/hook";
+import { Link } from "react-router-dom";
 
 const Introduce = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -81,17 +82,23 @@ const Introduce = () => {
         and intuitively implemented UX.
       </Typography>
 
-      <Button
-        variant="outlined"
-        color="secondary"
-        sx={{ padding: "1rem 3rem", zIndex: "20" }}
-        component={motion.div}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ ease: "easeInOut", delay: isMobile ? 1.2 : 2.2 }}
+      <Link
+        target="_blank"
+        to="https://drive.google.com/file/d/1T3-EXekCKJfHhX8lbBOE_msCtp7RXpWR/view?usp=share_link"
+        style={{ textDecoration: "none" }}
       >
-        Checkout my resume
-      </Button>
+        <Button
+          variant="outlined"
+          color="secondary"
+          sx={{ padding: "1rem 3rem", zIndex: "20" }}
+          component={motion.div}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ease: "easeInOut", delay: isMobile ? 1.2 : 2.2 }}
+        >
+          Checkout my resume
+        </Button>
+      </Link>
     </Stack>
   );
 };
