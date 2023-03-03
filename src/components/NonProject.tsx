@@ -23,10 +23,11 @@ const NonProject = () => {
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
+      id="nonProjects"
     >
       <Grid item lg={12} textAlign="center">
         <Typography variant="h5">Other Mini Projects</Typography>
-        <Typography variant="body2" color="#64ffda" mt={2}>
+        <Typography variant="body2" color="primary.light" mt={2}>
           view the archive
         </Typography>
       </Grid>

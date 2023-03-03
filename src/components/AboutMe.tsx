@@ -23,6 +23,7 @@ const AboutMe = () => {
       }}
       spacing={5}
       minHeight="100vh"
+      id="aboutMe"
     >
       <MotionGrid
         item
@@ -48,23 +49,41 @@ const AboutMe = () => {
             the internet. My interest in web development started in 2018 when I
             studied at my university. I realized that I am excited to build the
             user interface, and I am happy to see client satisfaction when they
-            are using my website. So I decided to become a front-end developer
-            in the near future and a full-stack developer after that.
+            are using my website. So I decided to become a{" "}
+            <Box
+              component="span"
+              color="primary.light"
+              className="hover-underline-animation"
+            >
+              front-end developer in the near future
+            </Box>{" "}
+            and a{" "}
+            <Box
+              component="span"
+              color="primary.light"
+              className="hover-underline-animation"
+            >
+              full-stack developer
+            </Box>{" "}
+            after that.
           </Typography>
 
           <Typography>
-            The first experience that
-            <Box component="span" color={"#64ffda"}>
-              an advertising agency , a start-up, a huge corporation,
+            In addition to my love of technology and design, I am also
+            interested in education, history, economics and politics.
+          </Typography>
+
+          <Typography>
+            I also recently learn more about{" "}
+            <Box
+              component="span"
+              color="primary.light"
+              className="hover-underline-animation"
+            >
+              backend framework or database
             </Box>
-            and a student-led design studio. My main focus these days is
-            building accessible, inclusive products and digital experiences at
-            Upstatement for a variety of clients.
-          </Typography>
-
-          <Typography>
-            I also recently launched a course that covers everything you need to
-            build a web app with the Spotify API using Node & React.
+            . It makes me fun and feeling that the technology is so awesome and
+            I hope this website is going to impressive with you
           </Typography>
 
           <Typography>
@@ -87,7 +106,7 @@ const AboutMe = () => {
                   alignItems={"center"}
                   width="30%"
                 >
-                  <ArrowRightIcon sx={{ color: "#64ffda" }} />
+                  <ArrowRightIcon sx={{ color: "primary.light" }} />
                   <Typography variant="caption">{tech}</Typography>
                 </Box>
               );

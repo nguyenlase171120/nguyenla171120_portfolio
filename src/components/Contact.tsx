@@ -24,6 +24,7 @@ const Contact = () => {
         y: 0,
       }}
       transition={{ duration: 1 }}
+      id="contact"
     >
       <Box
         display={"flex"}

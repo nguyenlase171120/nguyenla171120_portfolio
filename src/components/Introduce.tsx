@@ -11,6 +11,8 @@ const Introduce = () => {
 
   useEffect(() => {
     dispatch(setMobileState(isMobile));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
   return (
@@ -26,6 +28,7 @@ const Introduce = () => {
       }}
       component={"section"}
       minHeight="100vh"
+      id="introduce"
     >
       <Typography
         variant="body1"

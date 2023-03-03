@@ -9,11 +9,11 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { logo } from "../assets/images";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/styles";
 import DrawerMobile from "./DrawerMobile";
 import { motion } from "framer-motion";
+import { HashLink } from "react-router-hash-link";
 
 interface Props {
   /**
@@ -24,7 +24,7 @@ interface Props {
   children: React.ReactElement;
 }
 
-export const LinkResume = styled(Link)({
+export const LinkResume = styled(HashLink)({
   textTransform: "none",
   color: "#ccd6f6",
   textDecoration: "none",
@@ -43,25 +43,25 @@ export const settings = [
   {
     count: "01. ",
     title: "About",
-    path: "/about",
+    path: "#aboutMe",
     duration: 0.2,
   },
   {
     count: "02. ",
     title: "Experience",
-    path: "/experience",
+    path: "#experiences",
     duration: 0.4,
   },
   {
     count: "03. ",
     title: "Work",
-    path: "/work",
+    path: "#projects",
     duration: 0.6,
   },
   {
     count: "04. ",
     title: "Contact",
-    path: "/contact",
+    path: "#contact",
     duration: 0.8,
   },
 ];
@@ -136,6 +136,7 @@ const Navbar = () => {
                     transition={{ ease: "easeInOut", delay: item.duration }}
                     key={item.path}
                     className="hover-underline-animation"
+                    smooth
                   >
                     <span style={{ color: "#64ffda" }}>{item.count}</span>
                     {item.title}

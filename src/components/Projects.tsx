@@ -21,6 +21,7 @@ const Projects = () => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
+      id="projects"
     >
       <Grid item xl={4} lg={4}>
         <Box sx={{ display: "flex", alignItems: "center", gap: "12px" }}>

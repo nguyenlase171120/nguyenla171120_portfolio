@@ -3,11 +3,11 @@ import { Fragment, useState } from "react";
 import { IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { settings } from "./Navbar";
-import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import Typography from "@mui/material/Typography";
+import { HashLink } from "react-router-hash-link";
 
-const LinkMobile = styled(Link)({
+const LinkMobile = styled(HashLink)({
   textTransform: "none",
   color: "#ccd6f6",
   textDecoration: "none",
@@ -40,7 +40,13 @@ const DrawerMobile = () => {
         >
           {settings.map((item) => {
             return (
-              <LinkMobile to={item.path} key={item.path}>
+              <LinkMobile
+                to={item.path}
+                key={item.path}
+                smooth
+                className="hover-underline-animation"
+                onClick={() => setIsOpen(false)}
+              >
                 <Typography variant="body1">{item.count}</Typography>
                 <Typography variant="h6">{item.title}</Typography>
               </LinkMobile>

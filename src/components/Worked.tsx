@@ -1,4 +1,4 @@
-import { Grid, Box, Typography, Button, Stack } from "@mui/material";
+import { Grid, Box, Typography, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CURRENT_WORK, ICurrentWork } from "../constants";
@@ -47,6 +47,7 @@ const Worked = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
       spacing={3}
+      id="experiences"
     >
       <Grid container item xl={12} lg={12} alignItems="center" gap={1}>
         <Typography color="secondary" variant="h5">
