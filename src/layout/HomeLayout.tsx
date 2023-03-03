@@ -9,6 +9,7 @@ import Introduce from "../components/Introduce";
 import Worked from "../components/Worked";
 import NonProject from "../components/NonProject";
 import Contact from "../components/Contact";
+import Projects from "../components/Projects";
 
 export const theme = createTheme({
   palette: {
@@ -61,7 +62,8 @@ const HomeLayout = () => {
       >
         <Introduce />
         <AboutMe />
-        {/* <Worked /> */}
+        <Worked />
+        <Projects />
         <NonProject />
         <Contact />
       </Stack>

@@ -29,9 +29,9 @@ const AboutMe = () => {
         xs={12}
         md={8}
         lg={8}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2 }}
         viewport={{ once: true }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -44,15 +44,16 @@ const AboutMe = () => {
 
         <Stack textAlign={"left"} spacing={3} mt={5} color="#8892b0">
           <Typography>
-            Hello! My name is Brittany and I enjoy creating things that live on
-            the internet. My interest in web development started back in 2012
-            when I decided to try editing custom Tumblr themes — turns out
-            hacking together a custom reblog button taught me a lot about HTML &
-            CSS!
+            Hello! My name is Nguyen, and I enjoy creating things that live on
+            the internet. My interest in web development started in 2018 when I
+            studied at my university. I realized that I am excited to build the
+            user interface, and I am happy to see client satisfaction when they
+            are using my website. So I decided to become a front-end developer
+            in the near future and a full-stack developer after that.
           </Typography>
 
           <Typography>
-            Fast-forward to today, and I’ve had the privilege of working at{" "}
+            The first experience that
             <Box component="span" color={"#64ffda"}>
               an advertising agency , a start-up, a huge corporation,
             </Box>
@@ -143,8 +144,10 @@ const AboutMe = () => {
           right={-30}
           top={80}
           border="2px solid #64ffda"
-          height={250}
-          width={250}
+          sx={{
+            width: { xl: 250, md: 200, sm: 200, xs: 200 },
+            height: { xl: 250, md: 200, sm: 200, xs: 200 },
+          }}
           borderRadius={1}
           className="layer_border"
         />

@@ -2,6 +2,7 @@ import React from "react";
 import { Stack, Typography, Button, Box } from "@mui/material";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import PolylineIcon from "@mui/icons-material/Polyline";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   return (
@@ -10,15 +11,27 @@ const Contact = () => {
       flexDirection="column"
       justifyContent="space-between"
       alignItems="center"
-      sx={{ maxWidth: { xl: "40%" } }}
-      minHeight="100vh"
+      sx={{
+        maxWidth: { xl: "40%", md: "40%", sm: "50%" },
+        marginTop: { sm: "2rem", xs: "2rem" },
+      }}
+      minHeight="80vh"
       paddingY="20px"
+      component={motion.div}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{ duration: 1 }}
     >
       <Box
         display={"flex"}
         flexDirection="column"
         rowGap={3}
         textAlign="center"
+        justifyContent={"center"}
+        minHeight={"60%"}
       >
         <Typography variant="body1" sx={{ color: "#64ffda" }}>
           04. What's Next?
@@ -31,31 +44,42 @@ const Contact = () => {
         </Typography>
 
         <Box display={"inline-block"}>
-          <Button variant="outlined" color="secondary" size="large">
+          <Button
+            variant="outlined"
+            color="secondary"
+            size="large"
+            sx={{ zIndex: "20" }}
+          >
             Say hello
           </Button>
         </Box>
       </Box>
 
-      <Box>
-        <Typography variant="caption">Built by nguyenla171120</Typography>
+      <Stack
+        sx={{ cursor: "pointer" }}
+        component={motion.a}
+        whileHover={{ color: "#64ffda" }}
+        animate={{ textDecoration: "none", color: "#8892b0" }}
+        zIndex={20}
+        href={"https://github.com/nguyenlase171120"}
+        target={"_blank"}
+      >
+        <Typography variant="caption" color="inherit">
+          Built by nguyenla171120
+        </Typography>
         <Box
           display={"flex"}
-          gap={2}
+          gap={0.5}
           alignItems={"center"}
           justifyContent="center"
         >
-          <Typography variant="caption">
-            <StarOutlineIcon />
-            12
-          </Typography>
+          <StarOutlineIcon />
+          <Typography variant="caption">12</Typography>
 
-          <Typography variant="caption">
-            <PolylineIcon />
-            21232
-          </Typography>
+          <PolylineIcon />
+          <Typography variant="caption">21232</Typography>
         </Box>
-      </Box>
+      </Stack>
     </Stack>
   );
 };

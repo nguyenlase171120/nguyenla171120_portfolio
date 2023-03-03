@@ -7,7 +7,7 @@ import LaunchIcon from "@mui/icons-material/Launch";
 import { FOLDER_PROJECTS } from "../constants";
 
 const NonProject = () => {
-  const [isHover, setIsHover] = useState(false);
+  const [numberShow, setNumberShow] = useState<number>(2);
 
   return (
     <Grid
@@ -19,9 +19,13 @@ const NonProject = () => {
       sx={{ maxWidth: { lg: "60%" } }}
       gap={3}
       paddingX={2}
+      component={motion.div}
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
     >
       <Grid item lg={12} textAlign="center">
-        <Typography variant="h5">Other Noteworthy Projects</Typography>
+        <Typography variant="h5">Other Mini Projects</Typography>
         <Typography variant="body2" color="#64ffda" mt={2}>
           view the archive
         </Typography>
@@ -33,7 +37,7 @@ const NonProject = () => {
         wrap="wrap"
         gap={2}
       >
-        {FOLDER_PROJECTS.map((item) => {
+        {FOLDER_PROJECTS.slice(0, numberShow).map((item) => {
           return (
             <Grid
               item
@@ -44,17 +48,29 @@ const NonProject = () => {
               borderRadius={2}
               padding={2}
               bgcolor={"#112240"}
-              component={motion.div}
+              component={motion.a}
               whileHover={{
-                y: -6,
+                y: -10,
                 transition: { duration: 0.5, type: "spring" },
+                color: "#64ffda",
               }}
-              onHoverEnd={() => setIsHover(false)}
-              onHoverStart={() => setIsHover(true)}
-              sx={{ cursor: "pointer" }}
-              minHeight={"300px"}
-              maxHeight={"300px"}
+              sx={{
+                cursor: "pointer",
+                minHeight: { xl: 300, lg: 400, md: 300 },
+                maxHeight: { xl: 300, lg: 300, md: 300 },
+              }}
               overflow="hidden"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                textDecoration: "none",
+                color: "#ccd6f6",
+              }}
+              transition={{ duration: item.delay }}
+              href={item.externalLink}
+              target="_blank"
+              zIndex={20}
             >
               <Box
                 display={"flex"}
@@ -102,9 +118,7 @@ const NonProject = () => {
                 <Typography
                   variant="h6"
                   component={motion.h6}
-                  animate={
-                    isHover ? { color: "#64ffda" } : { color: "#ccd6f6" }
-                  }
+                  animate={{ color: "inherit" }}
                 >
                   {item.title}
                 </Typography>
@@ -133,8 +147,18 @@ const NonProject = () => {
         })}
       </Grid>
       <Grid item lg={12} justifyContent="center">
-        <Button variant="outlined" color="secondary" size="large">
-          Show more
+        <Button
+          variant="outlined"
+          color="secondary"
+          size="large"
+          sx={{ zIndex: "20" }}
+          onClick={() => {
+            return numberShow === FOLDER_PROJECTS.length
+              ? setNumberShow(numberShow - 2)
+              : setNumberShow(numberShow + 2);
+          }}
+        >
+          {numberShow === FOLDER_PROJECTS.length ? "Show less" : "Show more"}
         </Button>
       </Grid>
     </Grid>

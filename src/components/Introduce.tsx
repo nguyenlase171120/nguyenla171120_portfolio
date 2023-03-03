@@ -73,16 +73,15 @@ const Introduce = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ ease: "easeInOut", delay: isMobile ? 1 : 2 }}
       >
-        I’m a software engineer specializing in building (and occasionally
-        designing) exceptional digital experiences. Currently, I’m focused on
-        building accessible, human-centered products at{" "}
-        <span style={{ color: "#64ffda" }}>Upstatement.</span>
+        I design and code beautifully simple things, and I love what I do and
+        I'm passionate about cutting-edge, pixel-perfect, beautiful interfaces
+        and intuitively implemented UX.
       </Typography>
 
       <Button
         variant="outlined"
         color="secondary"
-        sx={{ padding: "1rem 3rem" }}
+        sx={{ padding: "1rem 3rem", zIndex: "20" }}
         component={motion.div}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

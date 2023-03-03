@@ -110,9 +110,9 @@ const Navbar = () => {
           <Link to="/">
             <img
               alt=""
-              src={logo}
-              width={40}
-              height={40}
+              src={"/logo.ico"}
+              width={60}
+              height={60}
               style={{ borderRadius: "50%" }}
             />
           </Link>
@@ -135,6 +135,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ ease: "easeInOut", delay: item.duration }}
                     key={item.path}
+                    className="hover-underline-animation"
                   >
                     <span style={{ color: "#64ffda" }}>{item.count}</span>
                     {item.title}
