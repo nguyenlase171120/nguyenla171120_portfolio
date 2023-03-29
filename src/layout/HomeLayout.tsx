@@ -10,6 +10,7 @@ import Worked from "../components/Worked";
 import NonProject from "../components/NonProject";
 import Contact from "../components/Contact";
 import Projects from "../components/Projects";
+import { useEffect, useRef } from "react";
 
 export const theme = createTheme({
   palette: {
@@ -48,10 +49,49 @@ const BoxMotion = motion(BoxMainStyled);
 
 const HomeLayout = () => {
   const { isMobile } = useAppSelector((state) => state.settingStore);
+  const progressRef = useRef();
+
+  const handleProgressBar = () => {
+    const { clientHeight, scrollHeight } = document.documentElement;
+    const scrollTop =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    console.log(clientHeight, scrollHeight, scrollTop);
+    const scrolled = Math.floor(
+      (scrollTop / (scrollHeight - clientHeight)) * 100
+    );
+
+    if (progressRef.current !== undefined) {
+      progressRef.current.style.width = scrolled + "%";
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleProgressBar);
+
+    return () => {
+      window.removeEventListener("scroll", handleProgressBar);
+    };
+  }, []);
 
   return (
     <Box sx={{ minHeight: "100vh", position: "relative" }}>
       <Navbar />
+      <Box
+        sx={{
+          position: "fixed",
+          top: 10,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: "10px",
+          backgroundColor: "#DAF5FF",
+          width: 0,
+          zIndex: 999,
+        }}
+        id="progress-bar"
+        ref={progressRef}
+      ></Box>
       <Stack
         display={"flex"}
         alignItems="center"
