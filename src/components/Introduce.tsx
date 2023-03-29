@@ -1,4 +1,4 @@
-import { Stack, Typography, Button, useMediaQuery, Box } from "@mui/material";
+import { Stack, Typography, Button, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import { theme } from "../layout/HomeLayout";
 import { setMobileState } from "../redux/settingSlice";

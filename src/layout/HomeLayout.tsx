@@ -62,7 +62,7 @@ const HomeLayout = () => {
     );
 
     if (progressRef.current !== undefined) {
-      progressRef.current.style.width = scrolled + "%";
+      progressRef.current["style"]["width"] = (scrolled + "%") as never;
     }
   };
 
